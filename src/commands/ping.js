@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 
 function execute(client, message, args) {
-    let lat = Date.now() - message.createdTimestamp
+    let lat = Math.abs(Date.now() - message.createdTimestamp);
     message.reply(`Pong! ${lat}ms https://tenor.com/KWO8.gif`);
 }
 
