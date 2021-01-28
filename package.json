@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rodovia/Gamera#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "mal-scraper": "^2.11.2",
     "nodemon": "^2.0.7"
   }
 }
