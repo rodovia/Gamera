@@ -7,7 +7,12 @@ Repositório do bot para o [servidor Gamera](https://discord.gg/Mx88m59jMd).
 
 2. Instale todas as dependências (`npm install`)
 
-3. Crie um arquivo (`credentials.json`) com o token e prefixo, usando o exemplo incluso como base 
+3. Crie um arquivo (`.env`) com o token e prefixo desta forma:
+
+`
+TOKEN="SEU TOKEN AQUI"
+PREFIXO="PREFIXO DO BOT"
+`
 
 Pronto!
 Para rodar o bot, basta dar um `npm start`!
