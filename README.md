@@ -5,7 +5,9 @@ Repositório do bot para o [servidor Gamera](https://discord.gg/Mx88m59jMd).
 
 1. Faça um clone do repositório (`git clone https://github.com/rodovia/Gamera/` ou baixe o [zip mais recente](https://github.com/rodovia/Gamera/archive/trunk.zip))
 
-1. Instale todas as dependências (`npm install`)
+2. Instale todas as dependências (`npm install`)
+
+3. Crie um arquivo (`credentials.json`) com o token e prefixo, usando o exemplo incluso como base 
 
 Pronto!
 Para rodar o bot, basta dar um `npm start`!
