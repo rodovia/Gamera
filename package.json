@@ -20,6 +20,10 @@
   "dependencies": {
     "discord.js": "^12.5.1",
     "mal-scraper": "^2.11.2",
+    "ms": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/ms": "^0.7.31",
     "nodemon": "^2.0.7"
   }
 }

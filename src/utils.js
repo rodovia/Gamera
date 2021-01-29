@@ -9,7 +9,7 @@ function loadAllCommands(client) {
         const command = require(`./commands/${file}`);
         client.commands.set(command.name, command);
 
-        console.debug(`${command} pronto.`);
+        console.debug(`${command.name} pronto.`);
     }
 
     // evitar ficar atrás dos aliases no evento message.

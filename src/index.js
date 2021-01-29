@@ -15,7 +15,7 @@ client.on("ready", () => {
     loadAllCommands(client);
 });
 
-client.on("message", (message) => {
+client.on("message", async (message) => {
     if (!message.content.startsWith(config.prefixo) || message.author.bot) return;
 
     const args = message.content.slice(config.prefixo.length).trim().split(/ +/);
@@ -23,7 +23,8 @@ client.on("message", (message) => {
 
     if (!client.commands.has(command)) return;
     try {
-        client.commands.get(command).execute(client, message, args);
+        let cmd = client.commands.get(command);
+        await cmd.execute(client, message, args);
     } catch(error) {
         console.error(error);
         message.reply("Houve um erro ao executar esse comando!");
