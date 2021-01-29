@@ -9,12 +9,9 @@ const searchOptions = {   //Opções de pesquisa
 
 async function execute(client, message, args){
     let resposta;
-    console.log(args.length)
-    console.log(args)
     if(args.length != 0){
         let anime = "";
         for(x = 0 ;x < args.length ; x++){ //junta as palavras do array
-            console.log(args[x])
             anime += args[x];
             anime += " ";
         }
