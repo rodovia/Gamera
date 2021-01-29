@@ -7,7 +7,6 @@ const searchOptions = {   //Opções de pesquisa
     maxResults:5
 };
 
-
 async function execute(client, message, args){
     let resposta;
     let anime = message.content.slice(7); // Tira a parte "*anime" do comando e deixa apenas o nome do anime
@@ -16,7 +15,12 @@ async function execute(client, message, args){
     let info = await scraper.getInfoFromName(anime);
     //Verifica se existe algum anime com o nome digitado
     if(anime.toLowerCase() == info.title.toLowerCase()){  
-        resposta = `${info.picture}\nanime: ${info.title} \nsinopse: ${info.synopsis}`
+        resposta = new discord.MessageEmbed()
+                .setColor("RED")
+                .setFooter(`Requisitado por ${message.author.tag}`, message.author.avatarURL({size: 32, format: 'png'}))
+                .setTitle(info.title)
+                .setThumbnail(info.picture)
+                .setDescription(info.synopsis);
     }
     //Caso não haja retorna uma lista de animes com nomes parecidos
     else{let resultados = await search('anime', searchOptions); //Procura o anime e retorna um json
@@ -27,7 +31,6 @@ async function execute(client, message, args){
         resposta = `\nPossíveis animes: \n${listaDeAnimes}`
     }
     message.reply(resposta)
-    
 }
 
 module.exports = {
