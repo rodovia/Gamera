@@ -9,10 +9,10 @@ Repositório do bot para o [servidor Gamera](https://discord.gg/Mx88m59jMd).
 
 3. Crie um arquivo (`.env`) com o token e prefixo desta forma:
 
-`
-TOKEN="SEU TOKEN AQUI"
+```
+TOKEN="SEU TOKEN AQUI" 
 PREFIXO="PREFIXO DO BOT"
-`
+```
 
 Pronto!
 Para rodar o bot, basta dar um `npm start`!
