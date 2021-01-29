@@ -8,7 +8,6 @@ const client = new discord.Client({
 });
 
 const { loadAllCommands, commands } = require("./utils");
-const config = require("./credentials.json");
 
 client.on("ready", () => {
     console.log("Bot pronto!");
@@ -16,9 +15,9 @@ client.on("ready", () => {
 });
 
 client.on("message", async (message) => {
-    if (!message.content.startsWith(config.prefixo) || message.author.bot) return;
+    if (!message.content.startsWith(process.env.PREFIXO) || message.author.bot) return;
 
-    const args = message.content.slice(config.prefixo.length).trim().split(/ +/);
+    const args = message.content.slice(process.env.PREFIXO.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
     if (!client.commands.has(command)) return;
@@ -30,5 +29,4 @@ client.on("message", async (message) => {
         message.reply("Houve um erro ao executar esse comando!");
     }
 });
-
-client.login(config.token);
+client.login(process.env.TOKEN);
