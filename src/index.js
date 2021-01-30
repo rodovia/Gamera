@@ -1,18 +1,13 @@
 const discord = require("discord.js");
-
-const client = new discord.Client({
-    allowedMentions: {
-        roles: false
-    },
-    disableMentions: "everyone"
-});
-
-const { loadAllCommands, commands } = require("./utils");
+const utils = require("./utils");
 const config = require("./credentials.json");
 
+const client = new discord.Client();
 client.on("ready", () => {
-    console.log("Bot pronto!");
-    loadAllCommands(client);
+    console.log(`Bot pronto! ${client.user.tag} (${client.user.id})`);
+    
+    utils.addGroup("miscelânea");
+    utils.addGroup("diversão");
 });
 
 client.on("message", async (message) => {
@@ -21,9 +16,9 @@ client.on("message", async (message) => {
     const args = message.content.slice(config.prefixo.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (!client.commands.has(command)) return;
+    if (!utils.commands.has(command)) return;
     try {
-        let cmd = client.commands.get(command);
+        var cmd = utils.commands.get(command);
         await cmd.execute(client, message, args);
     } catch(error) {
         console.error(error);

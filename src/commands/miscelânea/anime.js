@@ -7,7 +7,7 @@ const searchOptions = {   //Opções de pesquisa
     maxResults:5
 };
 
-async function execute(client, message, args){
+async function execute(client, message, args) {
     let resposta;
     let anime = message.content.slice(7); // Tira a parte "*anime" do comando e deixa apenas o nome do anime
     searchOptions.term = anime; //Termo a ser procurado
@@ -19,7 +19,7 @@ async function execute(client, message, args){
                 .setColor("RED")
                 .setFooter(`Requisitado por ${message.author.tag}`, message.author.avatarURL({size: 32, format: 'png'}))
                 .setTitle(info.title)
-                .setThumbnail(info.picture)
+                .setImage(info.picture)
                 .setDescription(info.synopsis);
     }
     //Caso não haja retorna uma lista de animes com nomes parecidos
